@@ -1,0 +1,52 @@
+.container {
+    position: relative;
+    top: 0;
+    margin: auto;
+    width: 80%;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    margin: auto;
+    display: block;
+    width: 80%;
+}
+
+.mat-toolbar {
+    height: 70px;
+}
+
+.mat-h3 {
+    margin: auto;
+    font-style: normal;
+}
+
+.example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-rate-limit-reached {
+    max-width: 360px;
+    text-align: center;
+}
+
+.mat-column-name {
+    padding-right: 5px;
+}
+
+.mat-column-description {
+    padding-right: 5px;
+}

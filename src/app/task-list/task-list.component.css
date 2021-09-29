@@ -1,0 +1,80 @@
+.container {
+    position: relative;
+    top: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container-card {
+    width: 250px;
+    height: 450px;
+    background-color: whitesmoke;
+    margin: 10px;
+}
+
+.example-card {
+    width: 90%;
+    margin: 5%;
+    box-sizing: border-box;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.example-viewport {
+    height: 350px;
+    width: 100%;
+    border: solid 1px gainsboro;
+    background: silver;
+}
+
+mat-card-actions {
+    text-align: right;
+}
+
+button {
+    margin-left: 5%;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.example-card:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0, 0);
+}
+
+.example-list.cdk-drop-list-dragging .example-card:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.mat-toolbar {
+    height: 70px;
+}
+
+.mat-h3 {
+    margin: auto;
+    font-style: normal;
+}
