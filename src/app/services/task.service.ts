@@ -14,7 +14,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  URL_BASE = 'http://rodrigo-possa-api-todo.herokuapp.com';
+  URL_BASE = 'https://rodrigo-possa-api-todo.herokuapp.com';
 
   getTasks(done:boolean) {
     return this.http.get<Task[]>(`${this.URL_BASE}/tasks/?done=${done}`);
