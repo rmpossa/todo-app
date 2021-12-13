@@ -24,7 +24,7 @@ export class AppComponent {
 
   logout(): void {
 
-    this.auth.logout({ returnTo: this.doc.location.origin })
+    this.auth.logout({ returnTo: this.doc.location.origin + '/todo-app'})
   }
 
   showProfile(picture:string, name:string, email:string) {
