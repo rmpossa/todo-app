@@ -1,8 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 .snackbar {
     color: whitesmoke;
-    
-  }
+}
+
+.user-photo-regular {
+    border-radius: 50%;
+    border: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.centralized {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+}

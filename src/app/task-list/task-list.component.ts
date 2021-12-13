@@ -67,9 +67,6 @@ export class TaskListComponent implements OnInit {
       this.openSnackBar('More work to-do! Work undone');
 
     });
-    
-
-    this.openSnackBar('More work to-do! Work undone');
   }
 
   edit(task:Task) {

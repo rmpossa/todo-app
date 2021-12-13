@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>User Account Info</h1>
+<div mat-dialog-content>
+    <img [src]="data.picture" [alt]="data.name" class="user-photo-regular centralized" /><br/>
+    <div class="centralized">
+        {{data.name}}
+        <br/>
+        <p class="mat-h4"><em>{{data.email}}</em></p>
+
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <div class="centralized">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Close</button>
+        <button mat-button [mat-dialog-close]="data">Logout</button>
+    </div>
+
+</div>

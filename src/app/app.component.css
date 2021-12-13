@@ -1,31 +1,38 @@
 .example-spacer {
     flex: 1 1 auto;
 }
+
 .mat-toolbar {
     position: fixed;
     top: 0;
     z-index: 3;
     height: 50px;
-    
 }
- .mat-sidenav {
+
+.mat-sidenav {
     /* position: absolute; */
     /* margin-top: 54px; */
     width: 240px;
-} 
+}
+
 .mat-sidenav-container {
     position: absolute;
     top: 50px;
     width: 100%;
     bottom: 0;
-    
 }
 
 .mat-list-item {
-    color: rgba(0,0,0,.65);
+    color: rgba(0, 0, 0, .65);
 }
 
 .mat-list-item:hover {
-    color: rgba(0,0,0);
+    color: rgba(0, 0, 0);
 }
 
+.user-photo {
+    border-radius: 50%;
+    border: 0;
+    width: 32px;
+    height: 32px;
+}

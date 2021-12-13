@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, DialogShowProfile } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogEditTask, TaskListComponent } from './task-list/task-list.component';
 import {MatListModule} from '@angular/material/list';
@@ -25,7 +25,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 
@@ -34,7 +34,8 @@ import {MatSortModule} from '@angular/material/sort';
     AppComponent,
     TaskListComponent,
     DialogEditTask,
-    SearchTaskComponent
+    SearchTaskComponent,
+    DialogShowProfile
   ],
   imports: [
     BrowserModule,
@@ -59,7 +60,11 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    AuthModule.forRoot({
+      domain: 'rmpossatodolist.us.auth0.com',
+      clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
