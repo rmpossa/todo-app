@@ -64,7 +64,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: 'rmpossatodolist.us.auth0.com',
       clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T',
-      redirectUri: 'https://rmpossa.github.io/todo-app/'
+      redirectUri: window.location.origin,
     }),
   ],
   providers: [],
