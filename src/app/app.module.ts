@@ -63,7 +63,8 @@ import { AuthModule } from '@auth0/auth0-angular';
     MatSortModule,
     AuthModule.forRoot({
       domain: 'rmpossatodolist.us.auth0.com',
-      clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T'
+      clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T',
+      redirectUri: 'https://rmpossa.github.io/todo-app/'
     }),
   ],
   providers: [],
