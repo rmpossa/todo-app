@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
+import { environment as env} from '../environments/environment';
 
 
 export interface DialogProfileData {
@@ -24,7 +25,7 @@ export class AppComponent {
 
   logout(): void {
 
-    this.auth.logout({ returnTo: this.doc.location.origin + '/todo-app'})
+    this.auth.logout({ returnTo: this.doc.location.origin + env.auth0RedirectUriSuffix})
   }
 
   showProfile(picture:string, name:string, email:string) {

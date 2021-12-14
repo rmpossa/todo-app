@@ -26,6 +26,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
 
 
 
@@ -64,7 +65,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: 'rmpossatodolist.us.auth0.com',
       clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T',
-      redirectUri: window.location.origin + '/todo-app',
+      redirectUri: window.location.origin + env.auth0RedirectUriSuffix,
     }),
   ],
   providers: [],
