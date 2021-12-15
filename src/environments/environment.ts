@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  auth0RedirectUriSuffix: ''
+  auth0RedirectUriSuffix: '',
+  taskApiBackendUrl: 'http://localhost:5000'
 };
 
 /*
