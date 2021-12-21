@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, DialogShowProfile } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,10 +25,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
-
-
 
 @NgModule({
   declarations: [
@@ -63,12 +61,22 @@ import { environment as env } from '../environments/environment';
     MatPaginatorModule,
     MatSortModule,
     AuthModule.forRoot({
-      domain: 'rmpossatodolist.us.auth0.com',
-      clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T',
+      domain: env.domain,
+      clientId: env.clientId,
       redirectUri: window.location.origin + env.auth0RedirectUriSuffix,
+      audience: env.audience,
+      httpInterceptor: {
+        allowedList: [`${env.serverUrl}/*`],
+      },
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

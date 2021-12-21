@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  auth0RedirectUriSuffix: '',
-  taskApiBackendUrl: 'http://localhost:5000'
+  domain: 'rmpossatodolist.us.auth0.com',
+  clientId: 'Sf60X5nHtiHIWAR3nB8h4wIfu29FIa4T',
+  audience: 'https://rodrigo-possa-api-todo.herokuapp.com',
+  serverUrl: 'http://localhost:5000',
+  auth0RedirectUriSuffix: ''
 };
 
 /*

@@ -11,7 +11,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  URL_BASE = env.taskApiBackendUrl;
+  URL_BASE = env.serverUrl;
 
   getTasks(done: boolean) {
     return this.http.get<Task[]>(`${this.URL_BASE}/tasks/?done=${done}`);
