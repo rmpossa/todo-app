@@ -5,6 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { Observable } from 'rxjs';
 import { TaskService } from '../services/task.service';
+import { SpinnerService } from '../services/spinner.service';
 
 
 export interface DialogData {
@@ -23,8 +24,11 @@ export class TaskListComponent implements OnInit {
   tasks:Task[]= []
 
   doneTasks:Task[]= []
+
+  isLoadingResults = true;
+
   
-  constructor(private _notificationBar: MatSnackBar, public dialog: MatDialog, private cdRef: ChangeDetectorRef, private taskService: TaskService) {}
+  constructor(private _notificationBar: MatSnackBar, public dialog: MatDialog, private cdRef: ChangeDetectorRef, private taskService: TaskService, public spinnerService: SpinnerService) {}
 
   openSnackBar(message:string) {
     this._notificationBar.open(message, null, {
@@ -39,11 +43,16 @@ export class TaskListComponent implements OnInit {
   }
 
   listUndoneTasks() {
-    this.taskService.getTasks(false).subscribe((tasks:Task[]) => this.tasks = tasks);
+    this.taskService.getTasks(false).subscribe((tasks:Task[]) => {
+      this.tasks = tasks
+    });
   }
 
   listDoneTasks() {
-    this.taskService.getTasks(true).subscribe((tasks:Task[]) => this.doneTasks = tasks);
+    this.taskService.getTasks(true).subscribe((tasks:Task[]) => {
+      this.doneTasks = tasks;
+    });
+    
   }
 
 
@@ -52,8 +61,7 @@ export class TaskListComponent implements OnInit {
     this.taskService.updateTask(task).subscribe((task:Task) => {
       this.listDoneTasks();
       this.listUndoneTasks();
-      this.openSnackBar('Congratulations! Work done');
-
+      this.openSnackBar(' Work done. Congratulations!');
     });
     
     
@@ -64,8 +72,7 @@ export class TaskListComponent implements OnInit {
     this.taskService.updateTask(task).subscribe((task:Task) => {
       this.listDoneTasks();
       this.listUndoneTasks();
-      this.openSnackBar('More work to-do! Work undone');
-
+      this.openSnackBar('Work undone. More work to do!');
     });
   }
 
@@ -141,10 +148,8 @@ export class TaskListComponent implements OnInit {
 
       if(event.previousContainer.id === 'todoList') {
         this.done(event.container.data[event.currentIndex]);
-        this.openSnackBar('Congratulations! Work done');
       } else {
         this.undone(event.container.data[event.currentIndex]);
-        this.openSnackBar('More work to-do! Work undone');
       }
     }
 

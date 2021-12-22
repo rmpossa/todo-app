@@ -27,3 +27,10 @@ body {
     text-align: center;
     display: block;
 }
+
+.justified {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    display: block;
+}

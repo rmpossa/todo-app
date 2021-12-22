@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, DialogShowProfile } from './app.component';
+import { AppComponent, DialogInfo, DialogShowProfile } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogEditTask, TaskListComponent } from './task-list/task-list.component';
 import {MatListModule} from '@angular/material/list';
@@ -27,6 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { CustomHttpInterceptor } from './interceptors/http-interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { environment as env } from '../environments/environment';
     TaskListComponent,
     DialogEditTask,
     SearchTaskComponent,
-    DialogShowProfile
+    DialogShowProfile,
+    DialogInfo
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,11 @@ import { environment as env } from '../environments/environment';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
       multi: true,
     },
   ],

@@ -22,6 +22,24 @@
     bottom: 0;
 }
 
+.container-loading-shade {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.example-loading-shade {
+    position: fixed;
+    z-index: 1;
+    top: 40%;
+    bottom: 40%;
+    right: 40%;
+    left: 40%;
+}
+
 .mat-list-item {
     color: rgba(0, 0, 0, .65);
 }

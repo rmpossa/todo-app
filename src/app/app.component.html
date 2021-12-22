@@ -2,12 +2,12 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
-    <span>To-Do List App - By Rodrigo Possa</span>
+    <span>To Do List App</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button matTooltip="Page Info" class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button matTooltip="Page Info" class="example-icon" (click)="showInfo()" aria-label="Example icon-button with menu icon">
         <mat-icon>info</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Login" class="example-icon" aria-label="Example icon-button with menu icon" (click)="auth.loginWithRedirect()" *ngIf="(auth.isAuthenticated$ | async) === false">
+    <button mat-icon-button matTooltip="Login" class="example-icon" aria-label="Example icon-button with menu icon" (click)="auth.loginWithRedirect({appState: { target: '/todoList' }})" *ngIf="(auth.isAuthenticated$ | async) === false">
         <mat-icon>login</mat-icon>
     </button>
 
@@ -26,6 +26,8 @@
 
     <mat-sidenav-content>
         <router-outlet></router-outlet>
-        <mat-spinner *ngIf="auth.isLoading$ | async"></mat-spinner>
+        <div class="container-loading-shade" *ngIf="auth.isLoading$ | async">
+            <mat-spinner [diameter]="150" class="example-loading-shade"></mat-spinner>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

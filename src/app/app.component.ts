@@ -12,6 +12,10 @@ export interface DialogProfileData {
   email:string;
 
 }
+
+export interface InfoData {
+  name: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,6 +41,11 @@ export class AppComponent {
     });
   }
 
+  showInfo() {
+    
+    this.openDialogInfo().subscribe(result => {});
+  }
+
   openDialog(picture:string, name:string, email:string): Observable<any>{
     
     const dialogRef = this.dialog.open(DialogShowProfile, {
@@ -45,6 +54,19 @@ export class AppComponent {
       data: {picture, name, email},
       panelClass: 'showProfile'
 
+    });
+
+    return dialogRef.afterClosed();
+    
+  }
+
+  openDialogInfo(): Observable<any>{
+    
+    const dialogRef = this.dialog.open(DialogInfo, {
+      width: '500px',
+      height: '500px',
+      data: {name: ""},
+      panelClass: 'showProfile'
     });
 
     return dialogRef.afterClosed();
@@ -63,6 +85,22 @@ export class DialogShowProfile {
   constructor(
     public dialogRef: MatDialogRef<DialogShowProfile>,
     @Inject(MAT_DIALOG_DATA) public data: DialogProfileData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'info',
+  templateUrl: 'info.html',
+})
+export class DialogInfo {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogInfo>,
+    @Inject(MAT_DIALOG_DATA) public data: InfoData) {}
 
   onNoClick(): void {
     this.dialogRef.close();

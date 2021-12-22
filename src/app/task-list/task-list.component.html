@@ -4,9 +4,13 @@
     </div>
 </mat-toolbar>
 <div class="container">
+    <div class="example-loading-shade" *ngIf="spinnerService.visibility | async">
+        <mat-spinner [diameter]="150"></mat-spinner>
+    </div>
+
     <mat-card class="container-card">
         <mat-card-header>
-            <mat-card-title>TO-DO</mat-card-title>
+            <mat-card-title>TO DO</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <cdk-virtual-scroll-viewport [itemSize]="20" class="example-viewport" cdkDropList id="todoList" [cdkDropListData]="tasks" [cdkDropListConnectedTo]="['doneList']" (cdkDropListDropped)="drop($event)">
@@ -42,7 +46,7 @@
                         <button mat-mini-fab color="warn" matTooltip="Remove task" (click)=remove(task)>
                             <mat-icon>remove</mat-icon>
                         </button>
-                        <button mat-mini-fab color="accent" matTooltip="Move to TO-DO list" (click)="undone(task)">
+                        <button mat-mini-fab color="accent" matTooltip="Move to TO DO list" (click)="undone(task)">
                             <mat-icon>undo</mat-icon>
                         </button>
                     </mat-card-actions>
